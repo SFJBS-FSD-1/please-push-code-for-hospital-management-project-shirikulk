@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to Hospital App</title>
+</head>
+<body>
+<div>
+<h3>Patients List</h3>
+    <form method="GET" action="/getallactivepatient">
+    <button type="submit" > Get All Active Patients </button>
+    </form>
+    {% if active_patient %}
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Phone Number</th>
+            <th>Age</th>
+            <th>Bed Type</th>
+            <th>Address</th>
+            <th>State</th>
+            <th>City</th>
+            <th>Status</th>
+        </tr>
+    {% for i in active_patient %}
+        <tr>
+            <td>{{i['id']}}</td>
+            <td>{{i['name']}}</td>
+            <td>{{i['phone_number']}}</td>
+            <td>{{i['age']}}</td>
+            <td>{{i['bed_type']}}</td>
+            <td>{{i['address']}}</td>
+            <td>{{i['state']}}</td>
+            <td>{{i['city']}}</td>
+            <td>{{i['status']}}</td>
+        </tr>
+    {% endfor %}
+    </table>
+    {% endif %}
+</div>
+</body>
+</html>

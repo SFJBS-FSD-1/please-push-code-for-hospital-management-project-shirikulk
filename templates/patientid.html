@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to Hospital Management App</title>
+</head>
+<body>
+<div>
+<h3>Welcome to Hospital Management App</h3>
+<label><b>Patient Details</b></label>
+<div class>
+    <form method="POST" action="/getpatientsbyphonenumber">
+        <input type="text" name="phone_number" placeholder="Phone Number">
+        <button type="submit"> Get Patient Details </button>
+    </form>
+    <form method="POST" action="/update_patient">
+        <input type="text" name="phone_number" placeholder="Phone Number">
+        <button type="submit"> Update Patient Details </button>
+    </form>
+    <form method="POST" action="/deletepatient">
+        <input type="text" name="phone_number" placeholder="Phone Number">
+        <button type="submit"> Delete Patient </button>
+    </form>
+</div>
+</div>
+
+{% if data %}
+    <h3>Patient details are</h3>
+    <p>Patient Id: {{data['id']}}</p>
+    <p>Name: {{data['name']}}</p>
+    <p>Phone Number: {{data['phone_number']}}</p>
+    <p>Age: {{data['age']}}</p>
+    <p>Bed Type: {{data['bed_type']}}</p>
+    <p>Address: {{data['address']}}</p>
+    <p>State: {{data['state']}}</p>
+    <p>City: {{data['city']}}</p>
+    <p>Patient Status: {{data['status']}}</p>
+{% endif %}
+
+{% if status %}
+<div>
+<h3>Update Patient Details</h3>
+    <form method="POST" action="/update">
+        <label><b>Name</b></label>
+        <input type="text" name="name" placeholder="Name" >
+
+        <label><b>Phone Number</b></label>
+        <input type="text" name="phone_number" placeholder="Phone Number" >
+
+        <label><b>Age</b></label>
+        <input type="text" name="age" placeholder="Age" >
+
+        <label><b>Bed Type</b></label>
+        <input type="text" name="bed" placeholder="Bed Type">
+
+        <label><b>Address</b></label>
+        <input type="text" name="address" placeholder="Address" >
+
+        <label><b>State</b></label>
+        <input type="text" name="state" placeholder="State" >
+
+        <label><b>City</b></label>
+        <input type="text" name="city" placeholder="City" >
+
+        <label><b>Patient Status</b></label>
+        <input type="text" name="status" placeholder="Patient Status">
+
+        <button type="submit"> Update </button>
+</form>
+</div>
+{% endif %}
+
+{% if update %}
+<h3>Patient details are updated</h3>
+    <p>Patient Id: {{update['id']}}</p>
+    <p>Name: {{update['name']}}</p>
+    <p>Phone Number: {{update['phone_number']}}</p>
+    <p>Age: {{update['age']}}</p>
+    <p>Bed Type: {{update['bed_type']}}</p>
+    <p>Address: {{update['address']}}</p>
+    <p>State: {{update['state']}}</p>
+    <p>City: {{update['city']}}</p>
+    <p>Patient Status: {{update['status']}}</p>
+{% endif %}
+
+{% if update_status %}
+<h4>{{update_status}}</h4>
+{% endif %}
+</body>
+</html>
+
+
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Title</title>-->
+<!--</head>-->
+<!--<body>-->
+
+<!--</body>-->
+<!--</html>-->

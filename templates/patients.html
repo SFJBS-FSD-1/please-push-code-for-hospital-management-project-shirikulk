@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to Hospital App</title>
+</head>
+<body>
+<div>
+<h3>Registration Form</h3>
+<form method="POST" action="/register_patient">
+    <div>
+        <label><b>Name</b></label>
+        <input type="text" name="name" placeholder="Patient Name" required>
+    </div>
+    <div>
+        <label><b>Phone Number</b></label>
+        <input type="text" name="phone_number" placeholder="Phone Number" required>
+    </div>
+    <div>
+        <label><b>Age</b></label>
+        <input type="text" name="age" placeholder="Age" required>
+    </div>
+    <div>
+        <label><b>Bed Type</b></label>
+        <input type="text" name="bed_type" placeholder="Bed Type">
+    </div>
+    <div>
+        <label><b>Address</b></label>
+        <input type="text" name="address" placeholder="Address" required>
+    </div>
+    <div>
+        <label><b>State</b></label>
+        <input type="text" name="state" placeholder="State" required>
+    </div>
+    <div>
+        <label><b>City</b></label>
+        <input type="text" name="city" placeholder="City" required>
+    </div>
+    <div>
+        <label><b>Patient Status</b></label>
+        <input type="text" name="patient_status" placeholder="Patient Status">
+    </div>
+    <div>
+        <button type="submit"> REGISTER </button>
+    </div>
+</form>
+
+{% if patient %}
+<h3>{{patient}} registration is completed</h3>
+<form method="GET" action="/getallpatients">
+    <button type="submit" > Patient List </button>
+</form>
+{% endif %}
+
+{% if status %}
+<h4>{{status}}</h4>
+<form method="GET" action="/getpatient">
+</form>
+{% endif %}
+</div>
+</body>
+</html>
