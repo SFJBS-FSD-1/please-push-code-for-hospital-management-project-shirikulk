@@ -13,7 +13,7 @@
         <input type="text" name="phone_number" placeholder="Phone Number">
         <button type="submit"> Get Patient Details </button>
     </form>
-    <form method="POST" action="/update_patient">
+    <form method="POST" action="/edit_patient">
         <input type="text" name="phone_number" placeholder="Phone Number">
         <button type="submit"> Update Patient Details </button>
     </form>
@@ -40,7 +40,7 @@
 {% if status %}
 <div>
 <h3>Update Patient Details</h3>
-    <form method="POST" action="/update">
+    <form method="POST" action="/edit">
         <label><b>Name</b></label>
         <input type="text" name="name" placeholder="Name" >
 
@@ -70,21 +70,21 @@
 </div>
 {% endif %}
 
-{% if update %}
+{% if edit %}
 <h3>Patient details are updated</h3>
-    <p>Patient Id: {{update['id']}}</p>
-    <p>Name: {{update['name']}}</p>
-    <p>Phone Number: {{update['phone_number']}}</p>
-    <p>Age: {{update['age']}}</p>
-    <p>Bed Type: {{update['bed_type']}}</p>
-    <p>Address: {{update['address']}}</p>
-    <p>State: {{update['state']}}</p>
-    <p>City: {{update['city']}}</p>
-    <p>Patient Status: {{update['status']}}</p>
+    <p>Patient Id: {{edit['id']}}</p>
+    <p>Name: {{edit['name']}}</p>
+    <p>Phone Number: {{edit['phone_number']}}</p>
+    <p>Age: {{edit['age']}}</p>
+    <p>Bed Type: {{edit['bed_type']}}</p>
+    <p>Address: {{edit['address']}}</p>
+    <p>State: {{edit['state']}}</p>
+    <p>City: {{edit['city']}}</p>
+    <p>Patient Status: {{edit['status']}}</p>
 {% endif %}
 
-{% if update_status %}
-<h4>{{update_status}}</h4>
+{% if edit_status %}
+<h4>{{edit_status}}</h4>
 {% endif %}
 </body>
 </html>

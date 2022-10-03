@@ -128,7 +128,7 @@ def patient_by_Id():
         else:
             return render_template("patientid.html", update_status="Patient id not Found")
 
-@app.route("/update_patient", methods=["POST"])
+@app.route("/edit_patient", methods=["POST"])
 def patient_update():
     if request.method == "POST":
         phone_number = request.form["phone_number"]
@@ -137,10 +137,10 @@ def patient_update():
             patient_data = {"id":patient.id, "name":patient.name,"phone_number":patient.phone_number, 'age':patient.age, 'bed':patient.bed_type, 'address':patient.address, 'state':patient.state,'city':patient.city, 'status':patient.patient_status}
             return render_template("patientid.html", status =patient_data)
         else:
-            return render_template("patientid.html", update_status="Patient id not Found")
+            return render_template("patientid.html", edit_status="Patient id not Found")
 
 
-@app.route("/update", methods=["POST"])
+@app.route("/edit", methods=["POST"])
 def update():
     if request.method == "POST":
         name = request.form['name']
@@ -162,7 +162,7 @@ def update():
         db.session.commit()
 
         # pat_data = {'id': pat.id, 'name': pat.name, 'phone_number': pat.phone_number, 'age': pat.age, 'bed': pat.bed_type, 'address': pat.address, 'state': pat.state, 'city': pat.city, 'status': pat.patient_status}
-        return render_template("patientid.html", update=pat_data)
+        return render_template("patientid.html", edit=pat_data)
 
 @app.route("/deletepatient", methods=["GET","POST"])
 def patient_delete():
@@ -172,9 +172,9 @@ def patient_delete():
         if patient:
             Patients.query.filter_by(phone_number=phone_number).delete()
             db.session.commit()
-            return render_template("patientid.html", update_status = "patient details deleted successfully")
+            return render_template("patientid.html", edit_status = "Patient details are deleted successfully")
         else:
-            return render_template("patientid.html", update_status = "Patient id not found")
+            return render_template("patientid.html", edit_status = "Patient id not found")
 
 if __name__=="__main__":
     port = int(os.environ.get("PORT", 5000))
