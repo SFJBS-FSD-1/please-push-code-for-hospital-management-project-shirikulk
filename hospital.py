@@ -29,7 +29,7 @@ app = Flask(__name__)
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:welcome$1234@localhost/HospitalDatabase'
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql+psycopg2://root:1234@localhost/HospitalDatabase'
 db = SQLAlchemy(app)
-# api = Api(app)
+api = Api(app)
 migrate = Migrate(app, db)
 
 class Patients(db.Model):
